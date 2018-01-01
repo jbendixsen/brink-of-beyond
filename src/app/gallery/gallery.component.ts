@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { Observable } from 'rxjs/Observable';
+  import { Observable } from 'rxjs/Observable';
 
 import { NgxGalleryOptions, NgxGalleryImage } from 'ngx-gallery';
 
-// import { ArtWorkService } from '../../services';
+import { GalleryService } from '../../services';
 
 // import { ArtWork } from '../../models/index';
 // import * as constants from '../../constants';
@@ -22,10 +24,23 @@ export class GalleryComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor() { }
+  epoch: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private galleryService: GalleryService) { }
 
   ngOnInit() {
-//    this.artWorks = this.artWorkService.getArtWorkThumbs();
+
+    // this.epoch = this.route.snapshot.paramMap.get('epoch');
+    // console.log(`Epoch: ${this.epoch}`);
+
+    this.route.params.subscribe(params => {
+      this.epoch = params['epoch'];
+      // console.log(`Params Change: ${params['epoch']}`);
+      this.galleryImages = this.galleryService.getGallery(this.epoch);
+    });
 
     this.galleryOptions = [
       {
@@ -34,42 +49,9 @@ export class GalleryComponent implements OnInit {
         thumbnailsColumns: 4,
         fullWidth: false,
         previewFullscreen: true,
-        previewCloseOnEsc: true
-      }
-    ];
-
-    this.galleryImages = [
-      {
-        description: 'Ambivalence',
-        small: 'assets/art-work/small/ambivalence.jpg',
-        medium: 'assets/art-work/medium/ambivalence.jpg',
-        big: 'assets/art-work/hd/ambivalence.jpg'
-      },
-      {
-        description: 'Anatomy',
-        small: 'assets/art-work/small/anatomy.jpg',
-        medium: 'assets/art-work/medium/anatomy.jpg',
-        big: 'assets/art-work/hd/anatomy.jpg'
-      },
-      {
-        description: 'Jupiter',
-        small: 'assets/art-work/small/jupiter.jpg',
-        medium: 'assets/art-work/medium/jupiter.jpg',
-        big: 'assets/art-work/hd/jupiter.jpg'
-      },
-      {
-        description: 'Kid',
-        small: 'assets/art-work/small/kid.jpg',
-        medium: 'assets/art-work/medium/kid.jpg',
-        big: 'assets/art-work/hd/kid.jpg'
-      },
-      {
-        description: 'Void`',
-        small: 'assets/art-work/small/void.jpg',
-        medium: 'assets/art-work/medium/void.jpg',
-        big: 'assets/art-work/hd/void.jpg'
+        previewCloseOnEsc: true,
+        imageSize: 'contain'
       }
     ];
   }
-
 }

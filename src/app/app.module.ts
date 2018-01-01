@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material';
 
 import { NgxGalleryModule } from 'ngx-gallery';
 
-import { ArtWorkService } from '../services';
+import { GalleryService } from '../services';
 
 import { AppComponent } from './app.component';
 import { LogoComponent } from './logo/logo.component';
@@ -14,6 +14,10 @@ import { InstagramLinkComponent } from './instagram-link/instagram-link.componen
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FooterComponent } from './footer/footer.component';
+import { MainContentComponent } from './main-content/main-content.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { BioComponent } from './bio/bio.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +26,19 @@ import { FooterComponent } from './footer/footer.component';
     InstagramLinkComponent,
     ToolbarComponent,
     GalleryComponent,
-    FooterComponent
+    FooterComponent,
+    MainContentComponent,
+    SideNavComponent,
+    BioComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    AppRoutingModule
   ],
-  providers: [ ArtWorkService ],
+  providers: [ GalleryService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

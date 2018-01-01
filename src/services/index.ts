@@ -1,1 +1,1 @@
-export { ArtWorkService }  from './art-work.service';
+export { GalleryService } from './gallery.service';

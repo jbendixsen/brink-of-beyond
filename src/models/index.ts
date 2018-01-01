@@ -1,1 +1,1 @@
-export * from './art-work.model';
+// export * from './gallery-item.model';
