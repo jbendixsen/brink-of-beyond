@@ -1,18 +1,32 @@
 .bio-title {
   padding-top: 20px;
+  padding-left: 30px;
   color: #bbb;
 }
 
 .bio-text {
+  text-align: justify;
   padding-top: 20px;
   color: #ddd;
 }
 
 .bio-container {
   padding-top: 20px;
+  max-width: 768px;
 }
 
 .bio-avatar {
   height: 128px;
   width: 128px;
+}
+
+.col-avatar {
+  text-align: end;
+  padding-right: 30px;
+
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 1s; /* Firefox < 16 */
+      -ms-animation: fadein 1s; /* Internet Explorer */
+       -o-animation: fadein 1s; /* Opera < 12.1 */
+          animation: fadein 1s;
 }

@@ -18,6 +18,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BioComponent } from './bio/bio.component';
+import { ToolbarNavComponent } from './toolbar-nav/toolbar-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BioComponent } from './bio/bio.component';
     FooterComponent,
     MainContentComponent,
     SideNavComponent,
-    BioComponent
+    BioComponent,
+    ToolbarNavComponent
   ],
   imports: [
     BrowserModule,

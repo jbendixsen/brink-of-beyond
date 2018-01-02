@@ -1,0 +1,14 @@
+.main-content {
+  // background-color: aqua;
+
+  // header =  72
+  // footer = 116
+  // total  = 188
+  height: -webkit-calc(100vh - 188px);
+  height: -moz-calc(100vh - 188px);
+  height: calc(100vh - 188px);
+}
+
+.gallery {
+  align-items: center;
+}
